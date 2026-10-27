@@ -1,0 +1,76 @@
+Preciso corrigir urgentemente o sistema de pagamentos do Chama English. O pagamento é feito pela STRIPE.
+
+PROBLEMA 1 — PIX NÃO APARECE:
+Quando um usuário escolhe pagar por PIX, o QR Code PIX real não aparece. Em vez disso, aparece uma opção relacionada a "simular compra" / pagamento de teste.
+
+Quero que você investigue toda a integração atual da Stripe e configure o fluxo corretamente para PRODUÇÃO.
+
+IMPORTANTE:
+- O usuário deve receber um QR Code PIX real quando escolher PIX.
+- Não mostrar opções de simulação, teste ou "simular compra" para usuários normais.
+- Não usar Stripe Test Mode para o fluxo de produção.
+- Não remover nem quebrar os métodos de pagamento existentes.
+- Preservar todo o design atual do Chama English.
+
+PROBLEMA 2 — PREMIUM ESTÁ SENDO LIBERADO SEM PAGAMENTO:
+Atualmente existe uma falha de segurança: aparentemente o usuário consegue clicar em uma opção de simulação e receber Premium sem realmente pagar.
+
+CORRIJA ISSO COMPLETAMENTE.
+
+REGRA OBRIGATÓRIA:
+O Premium NUNCA deve ser liberado pelo frontend simplesmente porque o usuário clicou em "pagar", "simular", "sucesso" ou qualquer botão semelhante.
+
+O servidor deve verificar o status REAL do pagamento na Stripe antes de conceder Premium.
+
+Use uma arquitetura segura:
+1. Usuário inicia o pagamento.
+2. Stripe cria o pagamento/PaymentIntent ou Checkout Session apropriado.
+3. Para PIX, mostrar os dados/QR Code gerados pela Stripe.
+4. O usuário realiza o pagamento.
+5. A Stripe confirma o pagamento.
+6. O backend recebe/verifica a confirmação da Stripe através do mecanismo oficial de confirmação/webhook.
+7. Somente depois de confirmar que o pagamento está realmente pago, o backend libera o Premium para aquele usuário.
+8. O frontend nunca pode conceder Premium sozinho.
+9. Um pagamento cancelado, expirado, pendente ou falho NÃO pode liberar Premium.
+10. Não confiar em parâmetros enviados pelo navegador para determinar que o pagamento foi concluído.
+
+SEGURANÇA:
+- Verifique a assinatura dos webhooks da Stripe.
+- Não coloque a Stripe Secret Key no frontend.
+- Não exponha chaves secretas no código ou nas variáveis públicas.
+- Vincule cada pagamento ao usuário correto do Chama English.
+- Evite que o mesmo pagamento possa conceder Premium várias vezes.
+- Garanta que atualizar/recarregar a página não conceda Premium sem confirmação real.
+- Garanta que alguém não consiga alterar uma resposta do frontend para se passar por pagamento aprovado.
+
+MODO DE TESTE:
+Se o projeto precisar manter Stripe Test Mode para desenvolvimento, mantenha-o separado do fluxo de produção. O usuário final NÃO deve conseguir usar funções de teste para obter Premium.
+
+ANTES DE ALTERAR O CÓDIGO:
+Faça uma auditoria da integração atual da Stripe e identifique:
+- onde o pagamento é criado;
+- onde o PIX é configurado;
+- onde o status do pagamento é verificado;
+- onde o Premium é concedido;
+- se existe algum botão ou endpoint de "simular compra";
+- se existe webhook da Stripe;
+- quais variáveis de ambiente da Stripe estão sendo usadas.
+
+Depois corrija a implementação.
+
+IMPORTANTE:
+Não faça uma implementação falsa de PIX.
+Não crie um QR Code fictício.
+Não substitua a Stripe por outro sistema.
+Use a integração real da Stripe que já existe no projeto.
+
+Depois da correção, teste estes cenários:
+1. PIX iniciado mas não pago → NÃO liberar Premium.
+2. Pagamento cancelado → NÃO liberar Premium.
+3. Pagamento expirado → NÃO liberar Premium.
+4. Pagamento realmente confirmado pela Stripe → liberar Premium.
+5. Usuário tenta alterar o frontend para fingir que pagou → NÃO liberar Premium.
+6. Recarregar a página depois de iniciar pagamento → NÃO liberar Premium sem confirmação.
+7. Pagamento confirmado → QR Code/status devem funcionar corretamente e Premium deve ser ativado.
+
+Não altere o design do Chama English desnecessariamente. Preserve o restante da aplicação.

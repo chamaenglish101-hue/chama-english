@@ -1,0 +1,160 @@
+import type { LessonPracticeContent } from "#/lib/exercises.ts"
+
+/** Condições específicas: unless, provided that, as long as — 10 perguntas. */
+export const A17_PRACTICE: LessonPracticeContent = {
+  id: "a17",
+  level: "avancado",
+  exercises: [
+    {
+      kind: "completar",
+      prompt: "We'll launch next week ___ we find a bug.",
+      hint: "Vamos lançar na próxima semana, a menos que apareça um bug.",
+      options: ["unless", "if", "although", "because"],
+      answer: 0,
+      explanation:
+        "“Unless” já significa “se não”, então substitui sozinho a ideia de “if we don't find a bug”.",
+    },
+    {
+      kind: "completar",
+      prompt: "You can use the car ___ you fill the tank.",
+      hint: "Você pode usar o carro desde que encha o tanque.",
+      options: ["as long as", "as soon as", "in case", "even if"],
+      answer: 0,
+      explanation:
+        "“As long as” impõe a condição de forma prática e cotidiana. “As soon as” falaria de tempo, não de condição.",
+    },
+    {
+      kind: "traduzir",
+      prompt: "A oferta é válida desde que o pagamento seja feito em 30 dias.",
+      bank: [
+        "The",
+        "offer",
+        "is",
+        "valid",
+        "provided",
+        "that",
+        "payment",
+        "is",
+        "made",
+        "in",
+        "30",
+        "days",
+        "provides",
+        "if",
+      ],
+      answer: [
+        "The",
+        "offer",
+        "is",
+        "valid",
+        "provided",
+        "that",
+        "payment",
+        "is",
+        "made",
+        "in",
+        "30",
+        "days",
+      ],
+      explanation:
+        "“Provided that” é a versão formal de “desde que”, comum em contratos e propostas.",
+    },
+    {
+      kind: "traduzir",
+      prompt: "Você pode usar o carro desde que encha o tanque.",
+      bank: [
+        "You",
+        "can",
+        "use",
+        "the",
+        "car",
+        "as",
+        "long",
+        "as",
+        "you",
+        "fill",
+        "the",
+        "tank",
+        "unless",
+        "fills",
+      ],
+      answer: [
+        "You",
+        "can",
+        "use",
+        "the",
+        "car",
+        "as",
+        "long",
+        "as",
+        "you",
+        "fill",
+        "the",
+        "tank",
+      ],
+      explanation:
+        "“As long as” vem seguido do presente simples “you fill”, mesmo com o “can” na outra parte.",
+    },
+    {
+      kind: "falar",
+      prompt: "We'll launch next week unless we find a bug.",
+      pt: "Vamos lançar na próxima semana, a menos que apareça um bug.",
+      tip: "Não negue o “unless”: ele já é negativo por natureza. Destaque “unless” com uma leve pausa antes.",
+    },
+    {
+      kind: "falar",
+      prompt: "The offer is valid provided that payment is made in 30 days.",
+      pt: "A oferta é válida desde que o pagamento seja feito em 30 dias.",
+      tip: "“Provided that” flui em “pro-VÁI-did-dat”. Mantenha o ritmo de contrato: pausado e claro.",
+    },
+    {
+      kind: "ouvirPalavra",
+      audio: "unless",
+      options: ["a menos que", "assim que", "apesar de", "a não ser que fosse"],
+      answer: 0,
+      explanation:
+        "“Unless” introduz a exceção que impede a outra ação de acontecer.",
+    },
+    {
+      kind: "ouvirPalavra",
+      audio: "on condition that",
+      options: [
+        "sob a condição de",
+        "na condição física",
+        "em más condições",
+        "condicionalmente",
+      ],
+      answer: 0,
+      explanation:
+        "“On condition that” exige uma contrapartida explícita e pertence ao registro formal.",
+    },
+    {
+      kind: "ouvirFrase",
+      audio: "We'll launch next week unless we find a bug.",
+      pt: "Vamos lançar na próxima semana, a menos que apareça um bug.",
+      options: [
+        "We'll launch next week unless we find a bug.",
+        "We'll launch next week unless we don't find a bug.",
+        "We'll launch next week if we find a bug.",
+        "We'll launch next week unless we found a bug.",
+      ],
+      answer: 0,
+      explanation:
+        "Depois de “unless” o verbo fica na forma afirmativa. A dupla negativa “unless we don't” inverte o sentido.",
+    },
+    {
+      kind: "ouvirFrase",
+      audio: "The offer is valid provided that payment is made in 30 days.",
+      pt: "A oferta é válida desde que o pagamento seja feito em 30 dias.",
+      options: [
+        "The offer is valid provided that payment is made in 30 days.",
+        "The offer is valid provided that payment make in 30 days.",
+        "The offer is valid provided payment is making in 30 days.",
+        "The offer is valid providing that payment is made in 30 days.",
+      ],
+      answer: 0,
+      explanation:
+        "“Provided that” é fixo, com o “d” final, e a passiva “is made” mantém o sentido impessoal.",
+    },
+  ],
+}

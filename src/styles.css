@@ -1,0 +1,383 @@
+@import "tailwindcss";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: #f4f7ff;
+    --foreground: #0b1220;
+    --card: #ffffff;
+    --card-foreground: #0b1220;
+    --popover: #ffffff;
+    --popover-foreground: #0b1220;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --secondary: #e4ecfc;
+    --secondary-foreground: #0b1220;
+    --muted: #e9effb;
+    --muted-foreground: #4c5a7c;
+    --accent: #dbe7fd;
+    --accent-foreground: #0b1220;
+    --destructive: #dc2f55;
+    --destructive-foreground: #ffffff;
+    --border: #d6e0f4;
+    --input: #d6e0f4;
+    --ring: #2563eb;
+    --brand: #2563eb;
+    --brand-soft: #3b82f6;
+    --iris: #6366f1;
+    --cyan: #0e7490;
+    --success: #0f8f63;
+    --warning: #a15c07;
+    --flame-1: #3b82f6;
+    --flame-2: #22d3ee;
+    --flame-3: #818cf8;
+    --flame-glow: #93c5fd;
+    --radius: 1rem;
+    --sidebar: #ffffff;
+    --sidebar-foreground: #0b1220;
+    --sidebar-primary: #2563eb;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #dbe7fd;
+    --sidebar-accent-foreground: #0b1220;
+    --sidebar-border: #d6e0f4;
+    --sidebar-ring: #2563eb;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: #0b1220;
+    --foreground: #e5e7eb;
+    --card: #121c33;
+    --card-foreground: #e9eef8;
+    --popover: #101a2e;
+    --popover-foreground: #e9eef8;
+    --primary: #38bdf8;
+    --primary-foreground: #07131f;
+    --secondary: #1b2740;
+    --secondary-foreground: #dce6f7;
+    --muted: #18233a;
+    --muted-foreground: #9cb0cf;
+    --accent: #1e2c4a;
+    --accent-foreground: #e9eef8;
+    --destructive: #fb7185;
+    --destructive-foreground: #2a0a12;
+    --border: #25334f;
+    --input: #25334f;
+    --ring: #38bdf8;
+    --brand: #38bdf8;
+    --brand-soft: #60a5fa;
+    --iris: #818cf8;
+    --cyan: #22d3ee;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --flame-1: #22d3ee;
+    --flame-2: #38bdf8;
+    --flame-3: #818cf8;
+    --flame-glow: #22d3ee;
+    --sidebar: #101a2e;
+    --sidebar-foreground: #e9eef8;
+    --sidebar-primary: #38bdf8;
+    --sidebar-primary-foreground: #07131f;
+    --sidebar-accent: #1e2c4a;
+    --sidebar-accent-foreground: #e9eef8;
+    --sidebar-border: #25334f;
+    --sidebar-ring: #38bdf8;
+  }
+}
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Baloo 2", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-iris: var(--iris);
+  --color-cyan: var(--cyan);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-flame-1: var(--flame-1);
+  --color-flame-2: var(--flame-2);
+  --color-flame-3: var(--flame-3);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    background: var(--background);
+    overflow-x: hidden;
+    /* WebView (Android/iOS): no rubber-band bounce of the whole page. */
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /*
+   * WebView: tapping a link, button, chip or interactive card must never start a
+   * text selection or the native "copy" callout. Real reading text (paragraphs,
+   * inputs, lesson content) stays fully selectable.
+   */
+  button,
+  a,
+  [role="button"],
+  [role="tab"],
+  [role="menuitem"],
+  [role="option"],
+  [role="checkbox"],
+  [role="radio"],
+  summary,
+  label,
+  .tap-target {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  .readable,
+  .readable * {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  input,
+  textarea,
+  [contenteditable="true"] {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+}
+
+@layer components {
+  .app-frame {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+  }
+
+  /* Ambient night-lamp glow behind the app content. */
+  .flame-bg {
+    background-image:
+      radial-gradient(
+        130% 90% at 50% -10%,
+        color-mix(in oklab, var(--flame-1) 26%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        90% 70% at 105% 8%,
+        color-mix(in oklab, var(--flame-3) 22%, transparent),
+        transparent 60%
+      );
+  }
+
+  .brand-gradient {
+    background-image: linear-gradient(
+      135deg,
+      var(--flame-1),
+      var(--flame-2) 55%,
+      var(--flame-3)
+    );
+  }
+
+  .brand-text {
+    background-image: linear-gradient(
+      120deg,
+      var(--flame-2),
+      var(--flame-3) 70%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card-soft {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    background: var(--card);
+  }
+
+  .card-tap {
+    transition:
+      transform 0.18s ease,
+      border-color 0.18s ease,
+      background-color 0.18s ease;
+  }
+
+  .card-tap:active {
+    transform: scale(0.985);
+  }
+}
+
+@layer utilities {
+  /* Safe Area: keeps content clear of notches, punch-holes and gesture bars. */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-x {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  .safe-frame {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes chama-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes chama-flicker {
+  0%,
+  100% {
+    transform: scale(1, 1) translateY(0);
+    opacity: 0.85;
+  }
+  35% {
+    transform: scale(0.96, 1.06) translateY(-2px);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.03, 0.97) translateY(1px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes chama-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95%,
+  97% {
+    transform: scaleY(0.08);
+  }
+}
+
+@keyframes chama-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes chama-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@layer components {
+  .chama-float {
+    animation: chama-float 5s ease-in-out infinite;
+  }
+
+  .chama-flicker {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: chama-flicker 2.6s ease-in-out infinite;
+  }
+
+  .chama-blink {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: chama-blink 5.5s ease-in-out infinite;
+  }
+
+  .chama-twinkle {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: chama-twinkle 2.2s ease-in-out infinite;
+  }
+
+  .chama-glow {
+    animation: chama-glow 4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chama-float,
+    .chama-flicker,
+    .chama-blink,
+    .chama-twinkle,
+    .chama-glow {
+      animation: none;
+    }
+  }
+}

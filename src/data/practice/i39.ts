@@ -1,0 +1,165 @@
+import type { LessonPracticeContent } from "#/lib/exercises.ts"
+
+/** Escrever mensagens e parágrafos claros — 10 perguntas. */
+export const I39_PRACTICE: LessonPracticeContent = {
+  id: "i39",
+  level: "intermediario",
+  exercises: [
+    {
+      kind: "completar",
+      prompt: "Hi Ana, are we still meeting at 10? ___ me know, thanks!",
+      hint: "Oi Ana, ainda nos encontramos às 10? Me avise, obrigado!",
+      options: ["Let", "Make", "Give", "Say"],
+      answer: 0,
+      explanation:
+        "“Let me know” é o fechamento padrão de mensagens curtas: pede retorno sem soar formal.",
+    },
+    {
+      kind: "completar",
+      prompt: "I can't make it today. Can we ___ for tomorrow?",
+      hint: "Não consigo hoje. Podemos remarcar para amanhã?",
+      options: ["reschedule", "schedule", "change", "move up"],
+      answer: 0,
+      explanation:
+        "“Reschedule” é remarcar algo já marcado. “Schedule” seria marcar pela primeira vez.",
+    },
+    {
+      kind: "traduzir",
+      prompt: "Segue o arquivo que você pediu. Me avise se faltar algo.",
+      bank: [
+        "Here's",
+        "the",
+        "file",
+        "you",
+        "asked",
+        "for",
+        "Let",
+        "me",
+        "know",
+        "if",
+        "anything",
+        "is",
+        "missing",
+        "miss it",
+        "here",
+      ],
+      answer: [
+        "Here's",
+        "the",
+        "file",
+        "you",
+        "asked",
+        "for",
+        "Let",
+        "me",
+        "know",
+        "if",
+        "anything",
+        "is",
+        "missing",
+      ],
+      explanation:
+        "Estrutura em quatro partes: cumprimento, motivo, pedido e encerramento. Frases curtas funcionam melhor.",
+    },
+    {
+      kind: "traduzir",
+      prompt: "Também preciso do relatório, mas posso esperar até sexta.",
+      bank: [
+        "I",
+        "also",
+        "need",
+        "the",
+        "report",
+        "but",
+        "I",
+        "can",
+        "wait",
+        "until",
+        "Friday",
+        "too",
+        "for",
+      ],
+      answer: [
+        "I",
+        "also",
+        "need",
+        "the",
+        "report",
+        "but",
+        "I",
+        "can",
+        "wait",
+        "until",
+        "Friday",
+      ],
+      explanation:
+        "“Also” e “but” são conectivos simples que ligam duas ideias sem períodos longos.",
+    },
+    {
+      kind: "falar",
+      prompt: "Hi Ana, are we still meeting at 10?",
+      pt: "Oi Ana, ainda nos encontramos às 10?",
+      tip: "Mensagem falada curta: blocos curtos e entonação subindo no fim. Sem rodeios, mas educado.",
+    },
+    {
+      kind: "falar",
+      prompt: "I can't make it today. Can we reschedule for tomorrow?",
+      pt: "Não consigo hoje. Podemos remarcar para amanhã?",
+      tip: "“Can't make it” soa “kent-MÊIK-it”. O “t” final quase desaparece antes de “it”.",
+    },
+    {
+      kind: "ouvirPalavra",
+      audio: "Here's the file",
+      options: [
+        "segue o arquivo",
+        "aqui está o seu arquivo antigo",
+        "o arquivo chegou",
+        "pegue o arquivo",
+      ],
+      answer: 0,
+      explanation:
+        "“Here's” abre mensagens para anexar ou entregar algo: “Here's the file you asked for”.",
+    },
+    {
+      kind: "ouvirPalavra",
+      audio: "Let me know",
+      options: [
+        "me avise",
+        "deixe-me saber tudo",
+        "me deixe em paz",
+        "deixe-me ir",
+      ],
+      answer: 0,
+      explanation:
+        "“Let me know” é a forma curta e educada de pedir uma resposta em mensagens e e-mails.",
+    },
+    {
+      kind: "ouvirFrase",
+      audio: "Hi Ana, are we still meeting at 10?",
+      pt: "Oi Ana, ainda nos encontramos às 10?",
+      options: [
+        "Hi Ana, are we still meeting at 10?",
+        "Hi Ana, are we still meeting at 12?",
+        "Hi Ana, are we still meeting on 10?",
+        "Hi Ana, we are still meeting at 10?",
+      ],
+      answer: 0,
+      explanation:
+        "Horário usa “at”. E a pergunta precisa da inversão: “are we…?”, nunca “we are…?”.",
+    },
+    {
+      kind: "ouvirFrase",
+      audio: "I can't make it today. Can we reschedule?",
+      pt: "Não consigo hoje. Podemos remarcar?",
+      options: [
+        "I can't make it today. Can we reschedule?",
+        "I can't make it today. Can we schedule?",
+        "I can't do it today. Can we reschedule?",
+        "I can't make it today. Can we reschedule it?",
+      ],
+      answer: 0,
+      explanation:
+        "“Make it” é comparecer e “reschedule” é remarcar. “Schedule” seria criar um compromisso novo.",
+    },
+  ],
+}
